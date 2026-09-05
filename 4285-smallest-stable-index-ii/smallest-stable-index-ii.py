@@ -6,7 +6,7 @@ class Solution:
         for i in range(len(nums)):
             prefix = max(prefix , nums[i])
             result[i] = prefix
-        suffix = float('inf')
+        suffix = nums[-1]
         for i in range(len(nums)-1 , -1 , -1):
             suffix = min(nums[i],suffix)
             result2[i] = suffix
