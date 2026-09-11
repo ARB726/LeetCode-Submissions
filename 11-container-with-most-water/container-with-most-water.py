@@ -11,12 +11,12 @@ class Solution:
             width = right-left
             
             area = heights*width
-            print(area)
+            
             maximum = max(area,maximum)
             
             if height[left] < height[right]:
                 left +=1
             else:            
                 right -=1
-                
+
         return maximum
