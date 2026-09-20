@@ -12,12 +12,13 @@ class Solution:
 
             left = helperFunction(node.left)
             right= helperFunction(node.right)
-            if left == -1 : return -1
-            if right == -1 : return -1
+
+            if left == -1 or right == -1 : return -1
+
             if abs(right-left) > 1: return -1
+            
             else: return max(left,right)+1
             
-        if helperFunction(root) == -1:
-            return False
-        else:
-            return True
+        if helperFunction(root) == -1: return False
+        
+        else:return True
