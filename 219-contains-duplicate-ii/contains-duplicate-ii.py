@@ -1,16 +1,18 @@
 class Solution:
-    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        hashSet = set ()
+    def containsNearbyDuplicate(self, nums: list[int], k: int) -> bool:
+        left = 0
+        seen = set()
 
-        for num in range(len(nums)):
+        for right in range(len(nums)):
 
-            if nums[num] in hashSet:
+            if right - left > k:
+
+                seen.remove(nums[left])
+                left +=1
+
+            if nums[right] in seen:
                 return True
 
-            hashSet.add(nums[num])
-
-            if len(hashSet) > k:
-
-                hashSet.remove(nums[num - k])
-
+            seen.add(nums[right])
+        
         return False
