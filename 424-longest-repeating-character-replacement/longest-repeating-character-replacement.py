@@ -1,9 +1,9 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        left , maxLength , hashMap , maxFreq = 0 , 0 , {} , 0
+        left , maxLength , hashMap , maxFreq , right = 0 , 0 , {} , 0 , 0
  
 
-        for right in range(len(s)):
+        while right < len(s):
             hashMap[s[right]] = hashMap.get(s[right],0) + 1
             maxFreq = max(maxFreq , hashMap[s[right]])
 
@@ -18,6 +18,7 @@ class Solution:
 
             maxLength = max(maxLength , right - left +1)
 
+            right +=1
 
         return maxLength
 
