@@ -6,18 +6,22 @@
 #         self.right = right
 class Solution:
     def isBalanced(self, root: TreeNode | None) -> bool:
+        
 
         def helperFunction(node):
 
-            if not node: return 0
+            if not node:
+                return 0
 
             left = helperFunction(node.left)
             right = helperFunction(node.right)
 
-            if left == -1 or right == -1: return -1
+            if left == -1: return -1
+            if right == -1 : return -1
 
-            if abs(right-left) > 1: return -1
+            if abs(right-left) > 1:
+                return -1
 
-            return max(left,right) + 1
-
+            else:
+                return 1 + max(left,right)
         return helperFunction(root) != -1
