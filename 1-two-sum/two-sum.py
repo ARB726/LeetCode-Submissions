@@ -4,7 +4,6 @@ class Solution:
 
 
         for i,j in enumerate(nums):
-
             total = target - j
 
             if total in hashMap:
