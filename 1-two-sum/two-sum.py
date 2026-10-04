@@ -1,15 +1,16 @@
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
-        answer = []
-        for i in range(len(nums)):
+        hashMap = {}
 
-            for j in range(i+1 , len(nums)):
-                total = 0
-                total += nums[i] + nums[j]
 
-                if total == target:
+        for i,j in enumerate(nums):
 
-                    answer.append(i)
-                    answer.append(j)
+            total = target - j
 
-        return answer
+            if total in hashMap:
+                return [hashMap[total] , i]
+
+            hashMap[j] = i
+
+        return []
+
