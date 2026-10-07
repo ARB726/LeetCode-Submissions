@@ -2,27 +2,22 @@ class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
 
-        # hashMap = {']':'[',')':'(','}':'{'}
-        hashMap = { '[' : ']' , '{' : '}' , '(' : ')'}
+        hashMap = {
+            '[':']' ,
+            '{':'}' ,
+            '(':')'
+        }
 
-        if len(s) % 2 != 0:
-            return False
-        for i in range(len(s)):
-            
-            if s[i] in hashMap:
-                stack.append(s[i])
 
+        for char in s:
+
+            if char in hashMap:
+                stack.append(char)
             
-            elif stack: 
-                if hashMap[stack[-1]] != s[i]:
-                    return False
-                else:
-                    stack.pop()
+            elif stack and hashMap[stack[-1]] == char: # this line basically means is that current char will always be closing bracket in this and we check if the top is opening bracket then we can pop it because in the previous if statement we check if char is key in hashMap(means opening brackets)
+                stack.pop()
             else:
                 return False
-        
-        if not stack: return True 
-        else: return False                
-      
+                break
 
-            
+        return not stack
