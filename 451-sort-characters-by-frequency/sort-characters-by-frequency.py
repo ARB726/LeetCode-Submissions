@@ -8,15 +8,16 @@ class Solution:
 
             buckets[j].append(i)
 
-        result =""
+        result = []
 
         for i in range(len(s) , 0 , -1):
 
             for char in buckets[i]:
 
-                result += char * i
+                result.append(char*i)
 
-        return result
+        return "".join(result
+        )
 
 
 
