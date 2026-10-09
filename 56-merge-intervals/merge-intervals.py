@@ -11,7 +11,6 @@ class Solution:
                 max(stack[-1][1],intervals[i][1])]
                 a = stack.pop()
                 stack.append(newVariable)
-                print(newVariable)
             else:
                 stack.append(intervals[i])
 
