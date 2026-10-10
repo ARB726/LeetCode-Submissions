@@ -6,49 +6,31 @@
 #         self.right = right
 class Solution:
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        self.Height = 0
         self.Diameter = 0
-
         def helperFunction(node):
 
-            if not node:
-                return 0
+            if not node: return 0
 
             left = helperFunction(node.left)
             right = helperFunction(node.right)
 
-            self.Height = 1 + max(left,right)
+            # self.diameter = max(left , right)# longest Leaf
+
+
 
             self.Diameter = max(self.Diameter , left + right)
 
-            return self.Height
+            return 1 + max(left,right)
         helperFunction(root)
         return self.Diameter
 
 
+"""
+Test Cases:
 
+tree doesn't exist = 0 will be returned
 
-
-
-
-
-
-
-
-
-
-
+Tree: - > left == 2 , right == 1 == 3
 
 
 """
-NOTES
--> ORDER->POSTORDER(left->right->root) - hint: root is not necessary
-
-->
-    -We will need a variable that stores the height so that we can pass maxHeight to the diameter
-    - THen we will need max To the diamater with left + right
-
-"""
-
-
-    
