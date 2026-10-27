@@ -14,9 +14,9 @@ class Solution:
             left = helperFunction(node.left)
             right = helperFunction(node.right)
 
-            self.Result = max(self.Result , left + right)
+            self.Result = max(self.Result , left + right) # this line checks total diameter
 
-            return 1 + max(left , right)
+            return 1 + max(left , right) # this line send height to the parent
 
         helperFunction(root)
 
