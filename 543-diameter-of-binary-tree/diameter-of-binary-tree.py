@@ -10,14 +10,15 @@ class Solution:
 
         def helperFunction(node):
 
-            if not node:
-                return 0
+            if not node: return 0
 
             left = helperFunction(node.left)
-            right = helperFunction(node.right)
 
+            right = helperFunction(node.right)
+            
             self.Diameter = max(self.Diameter , right + left)
             return 1 + max(left , right)
+
         helperFunction(root)
 
         return self.Diameter
