@@ -12,7 +12,6 @@ class Solution:
 
         return self.Result
 
-
     def helperFunction(self,node):
 
         if not node:
@@ -24,4 +23,4 @@ class Solution:
 
         self.Result = max(self.Result , left + right + node.val)
 
-        return node.val + max(left , right)
+        return node.val + max(left,right)
