@@ -12,6 +12,7 @@ class Solution:
 
         return self.Result
 
+
     def helperFunction(self,node):
 
         if not node:
